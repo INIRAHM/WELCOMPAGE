@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <title>INIRAH — Forge the Future & DevGuard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fbfdfc;
+      color: #13181c;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #0f2c3d;
+      --primary-light: #1e4a6e;
+      --accent: #e9b35f;
+      --accent-dark: #d49a3a;
+      --gray-bg: #f6f9fc;
+      --card-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ========== LANDING PAGE STYLES ========== */
+    .landing-page {
+      display: block;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #0f2c3d 0%, #1e5a7a 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .logo span {
+      color: var(--accent);
+      background: none;
+      background-clip: unset;
+      -webkit-background-clip: unset;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #2c3e44;
+      transition: all 0.3s;
+    }
+    .nav-links a:hover {
+      color: var(--accent-dark);
+    }
+    .btn-outline-light {
+      border: 1.5px solid var(--primary-light);
+      background: transparent;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-weight: 600;
+      color: var(--primary-light);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .btn-outline-light:hover {
+      background: var(--primary-light);
+      color: white;
+    }
+    .hero {
+      padding: 60px 0 80px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+    .hero-content {
+      flex: 1.2;
+      min-width: 280px;
+    }
+    .hero-badge {
+      background: rgba(233, 179, 95, 0.12);
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #c17b2e;
+      margin-bottom: 24px;
+      letter-spacing: 0.3px;
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      color: #0b1c26;
+      margin-bottom: 24px;
+    }
+    .hero-content h1 .accent-text {
+      color: var(--accent-dark);
+      border-bottom: 3px solid var(--accent);
+      display: inline-block;
+    }
+    .hero-description {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      color: #2c4959;
+      margin-bottom: 32px;
+      max-width: 540px;
+    }
+    .cta-group {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 0 8px 18px rgba(15, 44, 61, 0.2);
+    }
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid var(--primary-light);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      color: var(--primary-light);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .hero-visual {
+      flex: 1;
+      background: radial-gradient(ellipse at 30% 40%, rgba(233,179,95,0.08) 0%, rgba(15,44,61,0.02) 70%);
+      border-radius: 48px;
+      padding: 20px;
+      text-align: center;
+    }
+    .floating-icon {
+      font-size: 5rem;
+      color: var(--primary-light);
+      opacity: 0.7;
+    }
+    .brand-strip {
+      background: white;
+      border-top: 1px solid #eef3f7;
+      border-bottom: 1px solid #eef3f7;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .waitlist {
+      background: linear-gradient(115deg, #0f2c3d 0%, #1f4a62 100%);
+      border-radius: 48px;
+      margin: 0 32px 80px 32px;
+      padding: 60px 48px;
+      color: white;
+      text-align: center;
+    }
+    .waitlist h2 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .waitlist-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      max-width: 540px;
+      margin: 0 auto;
+    }
+    .waitlist-form input {
+      flex: 2;
+      padding: 16px 24px;
+      border-radius: 60px;
+      border: none;
+      font-size: 1rem;
+      outline: none;
+      background: white;
+      font-family: inherit;
+    }
+    .waitlist-form button {
+      background: var(--accent);
+      border: none;
+      padding: 16px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #0b1c26;
+      cursor: pointer;
+    }
+    footer {
+      background: #0a141c;
+      color: #cbdbe2;
+      padding: 48px 0 32px;
+      margin-top: 40px;
+    }
+    .copyright {
+      text-align: center;
+      border-top: 1px solid #1e2f3a;
+      padding-top: 32px;
+      font-size: 0.85rem;
+    }
+
+    /* ========== AUTH PAGES COMMON (Login & Sign Up) ========== */
+    .auth-page {
+      display: none;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+      background: #f0f4f8;
+      padding: 20px;
+    }
+    .auth-wrapper {
+      max-width: 480px;
+      width: 100%;
+      background: white;
+      border-radius: 48px;
+      box-shadow: 0 30px 50px -20px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      animation: slideUp 0.4s ease;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .brand-header {
+      background: #0f2c3d;
+      padding: 32px 32px 24px;
+      text-align: center;
+    }
+    .brand-header .logo {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffffff 0%, #e9b35f 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .brand-header p {
+      color: rgba(255,255,255,0.7);
+      margin-top: 8px;
+      font-size: 0.85rem;
+    }
+    .form-container {
+      padding: 40px 36px 44px;
+    }
+    .form-container h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #0b1c26;
+      margin-bottom: 8px;
+    }
+    .greeting {
+      color: #5b7c8c;
+      margin-bottom: 32px;
+      font-size: 0.9rem;
+    }
+    .input-group {
+      margin-bottom: 24px;
+    }
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+      color: #1e3a4a;
+    }
+    .input-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-icon .icon-left {
+      position: absolute;
+      left: 16px;
+      color: #9bb7c4;
+      font-size: 1rem;
+      z-index: 1;
+    }
+    .input-icon input {
+      width: 100%;
+      padding: 14px 16px 14px 46px;
+      border: 1.5px solid #e2edf2;
+      border-radius: 60px;
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .input-icon input:focus {
+      border-color: #e9b35f;
+      box-shadow: 0 0 0 3px rgba(233, 179, 95, 0.2);
+    }
+    .options-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      font-size: 0.85rem;
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      color: #2c4a5a;
+    }
+    .checkbox-label input {
+      width: 16px;
+      height: 16px;
+      accent-color: #e9b35f;
+      cursor: pointer;
+    }
+    .forgot-link {
+      color: #e9b35f;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .forgot-link:hover {
+      color: #c17b2e;
+      text-decoration: underline;
+    }
+    .auth-btn {
+      width: 100%;
+      background: #0f2c3d;
+      color: white;
+      border: none;
+      padding: 14px 0;
+      border-radius: 60px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 24px;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .auth-btn:hover {
+      background: #1e4a6e;
+    }
+    .auth-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #b9cfda;
+      font-size: 0.75rem;
+      margin-bottom: 24px;
+    }
+    .divider-line {
+      flex: 1;
+      height: 1px;
+      background: #e2edf2;
+    }
+    .social-login {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-bottom: 32px;
+    }
+    .social-btn {
+      background: white;
+      border: 1.5px solid #e2edf2;
+      border-radius: 60px;
+      padding: 10px 20px;
+      font-weight: 500;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: #1e3a4a;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .social-btn:hover {
+      background: #f8fbfd;
+      border-color: #e9b35f;
+    }
+    .auth-redirect {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5b7c8c;
+    }
+    .auth-redirect a {
+      color: #e9b35f;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .auth-redirect a:hover {
+      text-decoration: underline;
+    }
+    .back-home {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back-home a {
+      color: #6f8f9c;
+      text-decoration: none;
+      font-size: 0.8rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .back-home a:hover {
+      color: #4a6a7a;
+    }
+
+    /* Password strength indicator */
+    .password-strength {
+      margin-top: 8px;
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+    .strength-bar {
+      height: 4px;
+      flex: 1;
+      border-radius: 4px;
+      background: #e2edf2;
+      transition: all 0.3s;
+    }
+    .strength-bar.active.weak { background: #ef4444; }
+    .strength-bar.active.medium { background: #f59e0b; }
+    .strength-bar.active.strong { background: #10b981; }
+    .strength-text {
+      font-size: 0.7rem;
+      margin-left: 8px;
+      color: #94a3b8;
+    }
+
+    /* ========== TOAST ========== */
+    .toast-msg {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f2c3d;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 60px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      z-index: 10000;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+      animation: fadeUp 0.3s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateX(-50%) translateY(15px); }
+      to { opacity: 1; transform: translateX(-50%) translateY(0); }
+    }
+    .toast-msg.error {
+      background: #dc2626;
+    }
+    .toast-msg.success {
+      background: #059669;
+    }
+
+    /* ========== DASHBOARD STYLES ========== */
+    .dashboard-container {
+      display: none;
+      background: #0B1120;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      padding: 2rem 1.5rem;
+      color: #E2E8F0;
+    }
+    .dashboard {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      background: rgba(15, 23, 42, 0.7);
+      backdrop-filter: blur(12px);
+      padding: 0.9rem 2rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(71, 85, 105, 0.4);
+    }
+    .logo-dash h2 {
+      font-weight: 600;
+      background: linear-gradient(135deg, #94A3F8, #38BDF8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .user-badge {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: #0F172A;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      border: 1px solid #334155;
+    }
+    .avatar {
+      background: #2DD4BF;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #0B1120;
+      font-size: 0.9rem;
+    }
+    .logout-btn {
+      background: #dc2626;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 40px;
+      color: white;
+      cursor: pointer;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-left: 10px;
+      transition: all 0.2s;
+    }
+    .logout-btn:hover {
+      background: #b91c1c;
+    }
+    .modes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    .mode-card {
+      background: #111827;
+      border-radius: 1.8rem;
+      border: 1px solid #1E293B;
+      padding: 1.5rem;
+      transition: all 0.2s;
+    }
+    .mode-card:hover {
+      border-color: #334155;
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #1E293B;
+    }
+    .mode-toggle {
+      margin-left: auto;
+    }
+    .toggle-big {
+      position: relative;
+      display: inline-block;
+      width: 52px;
+      height: 26px;
+    }
+    .toggle-big input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider-round {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #334155;
+      transition: 0.2s;
+      border-radius: 34px;
+    }
+    .slider-round:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #F1F5F9;
+      transition: 0.2s;
+      border-radius: 50%;
+    }
+    input:checked + .slider-round {
+      background-color: #0EA5E9;
+    }
+    input:checked + .slider-round:before {
+      transform: translateX(26px);
+    }
+    .status-badge {
+      font-size: 0.7rem;
+      background: #1E293B;
+      padding: 2px 10px;
+      border-radius: 30px;
+      font-family: monospace;
+    }
+    .mini-btn {
+      background: #1E293B;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      color: #BAE6FD;
+      border: 1px solid #2D3A5E;
+      margin-top: 10px;
+      margin-right: 8px;
+      transition: all 0.2s;
+    }
+    .mini-btn:hover {
+      background: #2D3A5E;
+    }
+    .activity-panel {
+      background: #0F172A;
+      border-radius: 1.5rem;
+      border: 1px solid #1E293B;
+      margin-top: 1rem;
+      overflow: hidden;
+    }
+    .log-header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #1E293B;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .log-stream {
+      padding: 1rem 1.5rem;
+      max-height: 200px;
+      overflow-y: auto;
+      font-family: monospace;
+      font-size: 0.75rem;
+      background: #0A0F1A;
+    }
+    .log-entry {
+      padding: 5px 0;
+      border-bottom: 1px solid #1E2A3A;
+      color: #CFFAFE;
+      font-size: 0.72rem;
+    }
+
+    /* ========== THANK YOU PAGE ========== */
+    .thankyou-page {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0f2c3d 0%, #1a3a4a 100%);
+      padding: 24px;
+    }
+    .thankyou-card {
+      max-width: 500px;
+      width: 100%;
+      background: white;
+      border-radius: 48px;
+      text-align: center;
+      padding: 48px 36px;
+      box-shadow: 0 30px 50px -20px rgba(0,0,0,0.3);
+      animation: slideUp 0.4s ease;
+    }
+    .thankyou-card h1 {
+      font-size: 2.2rem;
+      color: #0f2c3d;
+      margin-bottom: 12px;
+    }
+    .thankyou-card p {
+      color: #5b7c8c;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+    .login-again-btn {
+      background: #0f2c3d;
+      color: white;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 60px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .login-again-btn:hover {
+      background: #1e4a6e;
+    }
+
+    @media (max-width: 800px) {
+      .container {
+        padding: 0 24px;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .waitlist {
+        margin: 0 20px 60px 20px;
+        padding: 40px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== 1. LANDING PAGE ========== -->
+<div id="landingSection" class="landing-page">
+  <nav class="container">
+    <div class="navbar">
+      <div class="logo">INIRAH<span>.</span></div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Vision</a>
+        <a href="#">Solutions</a>
+        <a href="#">Insights</a>
+        <button class="btn-outline-light" id="contactNavBtn">Connect</button>
+      </div>
+    </div>
+  </nav>
+  <main>
+    <div class="container">
+      <div class="hero">
+        <div class="hero-content">
+          <div class="hero-badge"><i class="fas fa-seedling"></i> Launching 2026 — The new era</div>
+          <h1>Building tomorrow's <span class="accent-text">breakthroughs</span> with INIRAH</h1>
+          <p class="hero-description">We fuse intelligence, agility, and craft to create products that redefine industries. Join us as we shape the future — from zero to infinite impact.</p>
+          <div class="cta-group">
+            <button class="btn-primary" id="heroCtaBtn">🔐 Sign In →</button>
+            <button class="btn-secondary" id="heroSignupBtn">✨ Create Account</button>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="floating-icon"><i class="fas fa-chalkboard-user"></i></div>
+          <p style="margin-top: 20px; font-weight: 500; color: #1e4a6e;">INIRAH · where ideas ignite</p>
+        </div>
+      </div>
+    </div>
+    <div class="brand-strip">
+      <div class="container">
+        <p>PIONEERING MINDS TRUST EMERGING VISIONARIES</p>
+      </div>
+    </div>
+    <div class="waitlist">
+      <h2>Be the first to shape INIRAH</h2>
+      <div class="waitlist-form">
+        <input type="email" id="waitlistEmail" placeholder="Your work email">
+        <button id="joinWaitlistBtn">Secure early access →</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <div class="container">
+      <div class="copyright">© 2026 INIRAH, Inc. — Drafting the next chapter.</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ========== 2. LOGIN PAGE ========== -->
+<div id="loginSection" class="auth-page" style="display: none;">
+  <div class="auth-wrapper">
+    <div class="brand-header">
+      <div class="logo">INIRAH<span style="color:#e9b35f;">.</span></div>
+      <p>your launchpad to the future</p>
+    </div>
+    <div class="form-container">
+      <h2>Welcome back 👋</h2>
+      <div class="greeting">Sign in to continue your journey with INIRAH</div>
+      <form id="loginForm">
+        <div class="input-group">
+          <label>Email address</label>
+          <div class="input-icon">
+            <span class="icon-left">📧</span>
+            <input type="email" id="loginEmail" placeholder="demo@inirah.com" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <div class="input-icon">
+            <span class="icon-left">🔒</span>
+            <input type="password" id="loginPassword" placeholder="Enter your password" autocomplete="current-password" required>
+          </div>
+        </div>
+        <div class="options-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberCheckbox"> Remember me
+          </label>
+          <a href="#" id="forgotPasswordLink" class="forgot-link">Forgot password?</a>
+        </div>
+        <button type="submit" class="auth-btn">➡️ Sign in</button>
+      </form>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span>or continue with</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="social-login">
+        <button class="social-btn" id="googleLoginBtn"><i class="fab fa-google"></i> Google</button>
+        <button class="social-btn" id="linkedinLoginBtn"><i class="fab fa-linkedin-in"></i> LinkedIn</button>
+      </div>
+      <div class="auth-redirect">
+        Don't have an account? <a id="goToSignupLink">Create one ✨</a>
+      </div>
+      <div class="back-home"><a id="backToLandingFromLogin">← Back to home</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 3. SIGN UP PAGE ========== -->
+<div id="signupSection" class="auth-page" style="display: none;">
+  <div class="auth-wrapper">
+    <div class="brand-header">
+      <div class="logo">INIRAH<span style="color:#e9b35f;">.</span></div>
+      <p>join the movement</p>
+    </div>
+    <div class="form-container">
+      <h2>Create your account 🚀</h2>
+      <div class="greeting">Start your journey with INIRAH today</div>
+      <form id="signupForm">
+        <div class="input-group">
+          <label>Full name</label>
+          <div class="input-icon">
+            <span class="icon-left">👤</span>
+            <input type="text" id="signupName" placeholder="John Doe" autocomplete="name" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Email address</label>
+          <div class="input-icon">
+            <span class="icon-left">📧</span>
+            <input type="email" id="signupEmail" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <div class="input-icon">
+            <span class="icon-left">🔒</span>
+            <input type="password" id="signupPassword" placeholder="Min. 8 characters" autocomplete="new-password" required minlength="8">
+          </div>
+          <div class="password-strength" id="passwordStrength">
+            <span class="strength-bar" id="bar1"></span>
+            <span class="strength-bar" id="bar2"></span>
+            <span class="strength-bar" id="bar3"></span>
+            <span class="strength-bar" id="bar4"></span>
+            <span class="strength-text" id="strengthText">Too weak</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label>Confirm password</label>
+          <div class="input-icon">
+            <span class="icon-left">✅</span>
+            <input type="password" id="signupConfirmPassword" placeholder="Re-enter password" autocomplete="new-password" required>
+          </div>
+        </div>
+        <div class="options-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="agreeTerms" required> I agree to the <a href="#" style="color:#e9b35f;">Terms</a> & <a href="#" style="color:#e9b35f;">Privacy Policy</a>
+          </label>
+        </div>
+        <button type="submit" class="auth-btn" id="signupSubmitBtn">✨ Create Account</button>
+      </form>
+      <div class="divider">
+        <div class="divider-line"></div>
+        <span>or sign up with</span>
+        <div class="divider-line"></div>
+      </div>
+      <div class="social-login">
+        <button class="social-btn" id="googleSignupBtn"><i class="fab fa-google"></i> Google</button>
+        <button class="social-btn" id="linkedinSignupBtn"><i class="fab fa-linkedin-in"></i> LinkedIn</button>
+      </div>
+      <div class="auth-redirect">
+        Already have an account? <a id="goToLoginLink">Sign in 🔐</a>
+      </div>
+      <div class="back-home"><a id="backToLandingFromSignup">← Back to home</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 4. DASHBOARD PAGE ========== -->
+<div id="dashboardSection" class="dashboard-container" style="display: none;">
+  <div class="dashboard">
+    <div class="top-bar">
+      <div class="logo-dash"><h2>🔧 DevSecTest · Multi-Mode Core</h2></div>
+      <div class="user-badge">
+        <span class="avatar" id="dashboardAvatar">D</span>
+        <span id="dashboardUserEmail">demo@inirah.com</span>
+        <span style="font-size:0.7rem; background:#1E293B; padding:2px 10px; border-radius:20px;">● online</span>
+        <button id="logoutBtnDashboard" class="logout-btn">🚪 Logout</button>
+      </div>
+    </div>
+    <div class="modes-grid">
+      <!-- Developer Mode -->
+      <div class="mode-card">
+        <div class="card-header">
+          <span>🛠️</span> Developer Mode
+          <div class="mode-toggle">
+            <label class="toggle-big">
+              <input type="checkbox" id="devModeToggle">
+              <span class="slider-round"></span>
+            </label>
+          </div>
+        </div>
+        <p style="font-size:0.8rem; color:#94A3B8; margin-bottom:8px;">Layout Inspector: <span class="status-badge" id="layoutInspectorStatus">off</span></p>
+        <p style="font-size:0.8rem; color:#94A3B8; margin-bottom:12px;">USB Debugging: <span class="status-badge" id="usbBridgeStatus">disabled</span></p>
+        <button id="simulateCrashBtn" class="mini-btn">💥 Simulate Crash</button>
+      </div>
+      <!-- Security Mode -->
+      <div class="mode-card">
+        <div class="card-header">
+          <span>🔒</span> Security Mode
+          <div class="mode-toggle">
+            <label class="toggle-big">
+              <input type="checkbox" id="secModeToggle">
+              <span class="slider-round"></span>
+            </label>
+          </div>
+        </div>
+        <p style="font-size:0.8rem; color:#94A3B8; margin-bottom:8px;">Threat Protection: <span class="status-badge" id="rtpStatus">standby</span></p>
+        <p style="font-size:0.8rem; color:#94A3B8; margin-bottom:12px;">SSL Pinning: <span class="status-badge" id="sslStatus">off</span></p>
+        <button id="triggerAuditBtn" class="mini-btn">📋 Run Security Audit</button>
+      </div>
+      <!-- Testing Mode -->
+      <div class="mode-card">
+        <div class="card-header">
+          <span>🧪</span> Testing Mode
+          <div class="mode-toggle">
+            <label class="toggle-big">
+              <input type="checkbox" id="testModeToggle">
+              <span class="slider-round"></span>
+            </label>
+          </div>
+        </div>
+        <p style="font-size:0.8rem; color:#94A3B8; margin-bottom:8px;">Mock API: <span class="status-badge" id="mockApiStatus">disabled</span></p>
+        <p style="font-size:0.8rem; color:#94A3B8; margin-bottom:12px;">Network: <span class="status-badge" id="netCondition">normal</span></p>
+        <button id="mockEndpointBtn" class="mini-btn">📡 Toggle Mock API</button>
+        <button id="simulateSlowNetBtn" class="mini-btn">🐢 Toggle Slow 3G</button>
+      </div>
+    </div>
+    <div class="activity-panel">
+      <div class="log-header">
+        <span>📡 Activity Log</span>
+        <button id="clearLogsBtn" class="mini-btn">🗑 Clear</button>
+      </div>
+      <div class="log-stream" id="logStream">
+        <div class="log-entry">● System ready — welcome to INIRAH dashboard</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== 5. THANK YOU PAGE ========== -->
+<div id="thankyouSection" class="thankyou-page" style="display: none;">
+  <div class="thankyou-card">
+    <div style="font-size:5rem;">🙏✨</div>
+    <h1>Thank You!</h1>
+    <p>You have been successfully logged out.<br>We appreciate your time with INIRAH.</p>
+    <button id="loginAgainBtn" class="login-again-btn">🔐 Sign in again</button>
+  </div>
+</div>
+
+<script>
+  (function() {
+    // ===== DOM REFERENCES =====
+    const landingSection = document.getElementById('landingSection');
+    const loginSection = document.getElementById('loginSection');
+    const signupSection = document.getElementById('signupSection');
+    const dashboardSection = document.getElementById('dashboardSection');
+    const thankyouSection = document.getElementById('thankyouSection');
+
+    // ===== HELPER: Show only one section =====
+    function showOnly(sectionToShow) {
+      // Hide all sections
+      landingSection.style.display = 'none';
+      loginSection.style.display = 'none';
+      signupSection.style.display = 'none';
+      dashboardSection.style.display = 'none';
+      thankyouSection.style.display = 'none';
+
+      // Show the requested section
+      if (!sectionToShow) return;
+      if (sectionToShow === loginSection || sectionToShow === signupSection || sectionToShow === thankyouSection) {
+        sectionToShow.style.display = 'flex';
+      } else {
+        sectionToShow.style.display = 'block';
+      }
+    }
+
+    // ===== TOAST MESSAGE =====
+    function showMessage(msg, type = 'info') {
+      const old = document.querySelector('.toast-msg');
+      if (old) old.remove();
+      const toast = document.createElement('div');
+      toast.className = 'toast-msg';
+      if (type === 'error') toast.classList.add('error');
+      if (type === 'success') toast.classList.add('success');
+      toast.innerText = msg;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transition = 'opacity 0.3s';
+        setTimeout(() => toast.remove(), 300);
+      }, 3000);
+    }
+
+    // ===== DASHBOARD LOG HELPER =====
+    function addDashboardLog(msg) {
+      const stream = document.getElementById('logStream');
+      if (!stream) return;
+      const entry = document.createElement('div');
+      entry.className = 'log-entry';
+      const time = new Date().toLocaleTimeString();
+      entry.textContent = `[${time}] ${msg}`;
+      stream.appendChild(entry);
+      entry.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ===== INITIAL STATE =====
+    showOnly(landingSection);
+    console.log('✅ INIRAH App Ready');
+    console.log('📧 Demo: demo@inirah.com / password123');
+    console.log('📝 Or create a new account via Sign Up');
+
+    // ==========================================
+    // LANDING PAGE BUTTONS
+    // ==========================================
+    document.getElementById('heroCtaBtn').addEventListener('click', () => {
+      showOnly(loginSection);
+      showMessage('🔐 Welcome back! Sign in to continue.');
+    });
+
+    document.getElementById('heroSignupBtn').addEventListener('click', () => {
+      showOnly(signupSection);
+      showMessage('✨ Create your INIRAH account!');
+    });
+
+    document.getElementById('contactNavBtn').addEventListener('click', () => {
+      showMessage('📧 Contact us: inirah.hrteam@gmail.com');
+    });
+
+    document.getElementById('joinWaitlistBtn').addEventListener('click', () => {
+      const email = document.getElementById('waitlistEmail').value.trim();
+      if (email && email.includes('@')) {
+        showMessage(`🚀 ${email} added to waitlist!`, 'success');
+        document.getElementById('waitlistEmail').value = '';
+      } else {
+        showMessage('Please enter a valid email address.', 'error');
+      }
+    });
+
+    // ==========================================
+    // LOGIN PAGE
+    // ==========================================
+    const VALID_EMAIL = "demo@inirah.com";
+    const VALID_PASSWORD = "password123";
+
+    // Pre-fill saved email
+    const savedEmail = localStorage.getItem('inirah_remembered_email');
+    if (savedEmail) {
+      document.getElementById('loginEmail').value = savedEmail;
+      document.getElementById('rememberCheckbox').checked = true;
+    }
+
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const password = document.getElementById('loginPassword').value;
+      const remember = document.getElementById('rememberCheckbox').checked;
+
+      if (!email || !password) {
+        showMessage('Please fill in both email and password.', 'error');
+        return;
+      }
+
+      if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+        if (remember) {
+          localStorage.setItem('inirah_remembered_email', email);
+        } else {
+          localStorage.removeItem('inirah_remembered_email');
+        }
+
+        showMessage(`✨ Welcome back, ${email.split('@')[0]}!`, 'success');
+        document.getElementById('dashboardUserEmail').textContent = email;
+        document.getElementById('dashboardAvatar').textContent = email.charAt(0).toUpperCase();
+
+        setTimeout(() => {
+          showOnly(dashboardSection);
+          addDashboardLog('✅ Authenticated session started for ' + email);
+          addDashboardLog('💡 Activate modes using the toggle switches');
+        }, 800);
+      } else {
+        if (email !== VALID_EMAIL) {
+          showMessage('Unknown email. Try: demo@inirah.com', 'error');
+        } else {
+          showMessage('Incorrect password. Hint: password123', 'error');
+        }
+      }
+    });
+
+    document.getElementById('forgotPasswordLink').addEventListener('click', (e) => {
+      e.preventDefault();
+      showMessage('📧 Password reset link sent (demo mode).');
+    });
+
+    document.getElementById('googleLoginBtn').addEventListener('click', () => showMessage('🔵 Google Sign-In coming soon!'));
+    document.getElementById('linkedinLoginBtn').addEventListener('click', () => showMessage('🔗 LinkedIn Sign-In coming soon!'));
+
+    // Go to Sign Up from Login
+    document.getElementById('goToSignupLink').addEventListener('click', () => {
+      showOnly(signupSection);
+      showMessage('📝 Create your account to get started!');
+    });
+
+    // Back to landing from Login
+    document.getElementById('backToLandingFromLogin').addEventListener('click', (e) => {
+      e.preventDefault();
+      showOnly(landingSection);
+    });
+
+    // ==========================================
+    // SIGN UP PAGE
+    // ==========================================
+    // Password strength checker
+    document.getElementById('signupPassword').addEventListener('input', function() {
+      const password = this.value;
+      const bars = [
+        document.getElementById('bar1'),
+        document.getElementById('bar2'),
+        document.getElementById('bar3'),
+        document.getElementById('bar4')
+      ];
+      const strengthText = document.getElementById('strengthText');
+
+      // Reset all bars
+      bars.forEach(bar => {
+        bar.className = 'strength-bar';
+      });
+
+      let strength = 0;
+      if (password.length >= 8) strength++;
+      if (password.match(/[A-Z]/)) strength++;
+      if (password.match(/[0-9]/)) strength++;
+      if (password.match(/[^A-Za-z0-9]/)) strength++;
+
+      if (password.length === 0) {
+        strengthText.textContent = 'Too weak';
+        strengthText.style.color = '#94a3b8';
+        return;
+      }
+
+      for (let i = 0; i < strength; i++) {
+        if (strength <= 2) bars[i].className = 'strength-bar active weak';
+        else if (strength === 3) bars[i].className = 'strength-bar active medium';
+        else bars[i].className = 'strength-bar active strong';
+      }
+
+      if (strength <= 1) {
+        strengthText.textContent = 'Weak';
+        strengthText.style.color = '#ef4444';
+      } else if (strength === 2) {
+        strengthText.textContent = 'Fair';
+        strengthText.style.color = '#f59e0b';
+      } else if (strength === 3) {
+        strengthText.textContent = 'Good';
+        strengthText.style.color = '#10b981';
+      } else if (strength === 4) {
+        strengthText.textContent = 'Strong 💪';
+        strengthText.style.color = '#059669';
+      }
+    });
+
+    // Sign Up form submission
+    document.getElementById('signupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('signupName').value.trim();
+      const email = document.getElementById('signupEmail').value.trim();
+      const password = document.getElementById('signupPassword').value;
+      const confirmPassword = document.getElementById('signupConfirmPassword').value;
+      const agreeTerms = document.getElementById('agreeTerms').checked;
+
+      // Validation
+      if (!name || !email || !password || !confirmPassword) {
+        showMessage('Please fill in all fields.', 'error');
+        return;
+      }
+      if (name.length < 2) {
+        showMessage('Please enter your full name.', 'error');
+        return;
+      }
+      if (!email.includes('@') || !email.includes('.')) {
+        showMessage('Please enter a valid email address.', 'error');
+        return;
+      }
+      if (password.length < 8) {
+        showMessage('Password must be at least 8 characters.', 'error');
+        return;
+      }
+      if (password !== confirmPassword) {
+        showMessage('Passwords do not match.', 'error');
+        return;
+      }
+      if (!agreeTerms) {
+        showMessage('Please agree to the Terms & Privacy Policy.', 'error');
+        return;
+      }
+
+      // Check if email is already registered (demo check)
+      if (email === VALID_EMAIL) {
+        showMessage('This email is already registered. Please sign in instead.', 'error');
+        return;
+      }
+
+      // Success - Store user data (simulated)
+      const userData = {
+        name: name,
+        email: email,
+        createdAt: new Date().toISOString()
+      };
+      
+      // Store in localStorage
+      let users = JSON.parse(localStorage.getItem('inirah_users') || '[]');
+      users.push(userData);
+      localStorage.setItem('inirah_users', JSON.stringify(users));
+      localStorage.setItem('inirah_current_user', JSON.stringify(userData));
+
+      showMessage(`🎉 Account created! Welcome, ${name.split(' ')[0]}!`, 'success');
+
+      // Set dashboard info
+      document.getElementById('dashboardUserEmail').textContent = email;
+      document.getElementById('dashboardAvatar').textContent = name.charAt(0).toUpperCase();
+
+      // Clear form
+      document.getElementById('signupForm').reset();
+      document.getElementById('passwordStrength').querySelectorAll('.strength-bar').forEach(b => b.className = 'strength-bar');
+      document.getElementById('strengthText').textContent = 'Too weak';
+
+      // Redirect to dashboard
+      setTimeout(() => {
+        showOnly(dashboardSection);
+        addDashboardLog('✅ New account created: ' + email);
+        addDashboardLog('👤 Welcome, ' + name + '!');
+        addDashboardLog('💡 Activate modes using the toggle switches above');
+      }, 1000);
+    });
+
+    // Social sign up buttons
+    document.getElementById('googleSignupBtn').addEventListener('click', () => showMessage('🔵 Google Sign-Up coming soon!'));
+    document.getElementById('linkedinSignupBtn').addEventListener('click', () => showMessage('🔗 LinkedIn Sign-Up coming soon!'));
+
+    // Go to Login from Sign Up
+    document.getElementById('goToLoginLink').addEventListener('click', () => {
+      showOnly(loginSection);
+      showMessage('🔐 Welcome back! Sign in to continue.');
+    });
+
+    // Back to landing from Sign Up
+    document.getElementById('backToLandingFromSignup').addEventListener('click', (e) => {
+      e.preventDefault();
+      showOnly(landingSection);
+    });
+
+    // ==========================================
+    // DASHBOARD INTERACTIONS
+    // ==========================================
+    // Developer Mode Toggle
+    document.getElementById('devModeToggle').addEventListener('change', function() {
+      const layoutStatus = document.getElementById('layoutInspectorStatus');
+      const usbStatus = document.getElementById('usbBridgeStatus');
+      if (this.checked) {
+        layoutStatus.textContent = 'active 🔍';
+        layoutStatus.style.color = '#86EFAC';
+        usbStatus.textContent = 'enabled';
+        usbStatus.style.color = '#86EFAC';
+        addDashboardLog('🛠️ Developer Mode ACTIVATED');
+      } else {
+        layoutStatus.textContent = 'off';
+        layoutStatus.style.color = '#94A3B8';
+        usbStatus.textContent = 'disabled';
+        usbStatus.style.color = '#94A3B8';
+        addDashboardLog('🛠️ Developer Mode DEACTIVATED');
+      }
+    });
+
+    // Security Mode Toggle
+    document.getElementById('secModeToggle').addEventListener('change', function() {
+      const rtpStatus = document.getElementById('rtpStatus');
+      const sslStatus = document.getElementById('sslStatus');
+      if (this.checked) {
+        rtpStatus.textContent = 'active 🛡️';
+        rtpStatus.style.color = '#5EE0FA';
+        sslStatus.textContent = 'pinning ON';
+        sslStatus.style.color = '#5EE0FA';
+        addDashboardLog('🔒 Security Mode ACTIVATED');
+      } else {
+        rtpStatus.textContent = 'standby';
+        rtpStatus.style.color = '#94A3B8';
+        sslStatus.textContent = 'off';
+        sslStatus.style.color = '#94A3B8';
+        addDashboardLog('🔒 Security Mode DEACTIVATED');
+      }
+    });
+
+    // Testing Mode Toggle
+    document.getElementById('testModeToggle').addEventListener('change', function() {
+      const mockStatus = document.getElementById('mockApiStatus');
+      if (this.checked) {
+        mockStatus.textContent = 'standby';
+        mockStatus.style.color = '#FDE047';
+        addDashboardLog('🧪 Testing Mode ENABLED');
+      } else {
+        mockStatus.textContent = 'disabled';
+        mockStatus.style.color = '#94A3B8';
+        addDashboardLog('🧪 Testing Mode DISABLED');
+      }
+    });
+
+    // Simulate Crash
+    document.getElementById('simulateCrashBtn').addEventListener('click', () => {
+      addDashboardLog('💥 SIMULATED CRASH — developer exception captured');
+      showMessage('💥 Crash simulation logged!', 'error');
+    });
+
+    // Security Audit
+    document.getElementById('triggerAuditBtn').addEventListener('click', () => {
+      addDashboardLog('🔐 Security audit completed — no threats detected');
+      showMessage('📋 Security audit passed!', 'success');
+    });
+
+    // Mock API Toggle
+    document.getElementById('mockEndpointBtn').addEventListener('click', () => {
+      const status = document.getElementById('mockApiStatus');
+      if (status.textContent.includes('disabled') || status.textContent.includes('standby')) {
+        status.textContent = 'MOCK ACTIVE';
+        status.style.color = '#FACC15';
+        addDashboardLog('📡 Mock API endpoints ACTIVATED');
+      } else {
+        status.textContent = 'disabled';
+        status.style.color = '#94A3B8';
+        addDashboardLog('📡 Mock API endpoints DEACTIVATED');
+      }
+    });
+
+    // Slow Network Toggle
+    document.getElementById('simulateSlowNetBtn').addEventListener('click', () => {
+      const status = document.getElementById('netCondition');
+      if (status.textContent === 'normal') {
+        status.textContent = '3G slow (+450ms)';
+        status.style.color = '#F97316';
+        addDashboardLog('🐢 Network throttling: 3G profile active');
+      } else {
+        status.textContent = 'normal';
+        status.style.color = '#94A3B8';
+        addDashboardLog('🐢 Network simulation disabled');
+      }
+    });
+
+    // Clear Logs
+    document.getElementById('clearLogsBtn').addEventListener('click', () => {
+      const stream = document.getElementById('logStream');
+      stream.innerHTML = '<div class="log-entry">● Logs cleared</div>';
+    });
+
+    // ==========================================
+    // LOGOUT
+    // ==========================================
+    document.getElementById('logoutBtnDashboard').addEventListener('click', () => {
+      showOnly(thankyouSection);
+      showMessage('👋 You have been logged out. Thank you!');
+    });
+
+    // ==========================================
+    // LOGIN AGAIN FROM THANK YOU
+    // ==========================================
+    document.getElementById('loginAgainBtn').addEventListener('click', () => {
+      showOnly(loginSection);
+    });
+
+    console.log('✅ All event listeners initialized');
+    console.log('📋 Available pages: Landing | Login | Sign Up | Dashboard | Thank You');
+  })();
+</script>
+</body>
+</html>
